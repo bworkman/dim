@@ -10,5 +10,18 @@
   <%= @user.email %>
 </p>
 
+<p>
+	<strong>Characters:</strong>
+	<ul>
+		<% if @user.characters %>
+			<%= @user.characters.each do |character| %>
+				<li>
+					<%= character.type %>
+				</li>
+			<% end %>
+	</ul>
+		<% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

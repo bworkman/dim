@@ -1,10 +1,9 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
-
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.all
+    @characters = current_user.characters
   end
 
   # GET /characters/1
