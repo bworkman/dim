@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.json
   def create
-    @character = Character.new(character_params)
+    @character = current_user.characters.build(character_params)
 
     respond_to do |format|
       if @character.save
@@ -68,6 +68,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:type)
+      params.require(:character).permit(:character_type, :user_id)
     end
 end

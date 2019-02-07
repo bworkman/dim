@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :character_type %>
+    <%= form.select(:character_type, [['Titan','Titan'],['Hunter','Hunter'],['Warlock', 'Warlock']], :prompt => 'Select Type') %>
   </div>
 
   <div class="actions">

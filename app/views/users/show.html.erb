@@ -9,19 +9,33 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
 <p>
-	<strong>Characters:</strong>
-	<ul>
-		<% if @user.characters %>
-			<%= @user.characters.each do |character| %>
-				<li>
-					<%= character.type %>
-				</li>
-			<% end %>
-	</ul>
-		<% end %>
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Back', users_path %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div>
+	<strong>Characters:</strong>
+	<table>
+		<% if @characters %>
+			<% @characters.each do |character| %>
+				<tr>
+					<td>
+						<%= character.character_type %>
+					</td>
+					<td>
+						<%= link_to 'Edit', edit_character_path(character )%>
+					</td>
+					<td>
+						<%= link_to 'Destroy', character, controller: :characters, method: :delete, data: {confirm: 'Are you sure?'} %>
+					</td>
+				</tr>
+			<% end %>
+	</table>
+		<% end %>
+		<%= link_to 'Character List', characters_path%>
+		
+		<%= link_to 'Item List', items_path %>
+</div>
+
+

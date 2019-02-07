@@ -1,0 +1,37 @@
+<%= form_with(model: loadout, local: true) do |form| %>
+  <% if loadout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loadout.errors.count, "error") %> prohibited this loadout from being saved:</h2>
+
+      <ul>
+      <% loadout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item1 %>
+    <%= form.number_field :item1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item2 %>
+    <%= form.number_field :item2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item3 %>
+    <%= form.number_field :item3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
